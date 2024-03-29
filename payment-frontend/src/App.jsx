@@ -23,7 +23,7 @@ function App() {
 			order_id: data.id,
 			handler: async (response) => {
 				try {
-					const verifyUrl = "http://localhost:8080/verify";
+					const verifyUrl = "https://payment-backend-nlv2.onrender.com/verify";
 					const { data } = await axios.post(verifyUrl, response);
 					console.log(data);
 				} catch (error) {
@@ -40,7 +40,7 @@ function App() {
 
 	const handlePayment = async () => {
 		try {
-			const orderUrl = "http://localhost:8080/orders";
+			const orderUrl = "https://payment-backend-nlv2.onrender.com/orders";
 			const { data } = await axios.post(orderUrl, { amount: book.price });
 			console.log(data);
 			initPayment(data.data);
